@@ -33,7 +33,7 @@ Route :: group([
     'middleware' => 'auth'
 ],function() {
     Route::get ('/dashboard', function () {
-        return view('pages.dashboard');
+        return view('pages.admin.dashboard');
     })->name('dashboard');
 
     Route::resource('admin', AdminController::class);
