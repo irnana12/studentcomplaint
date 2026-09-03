@@ -52,6 +52,18 @@
                                 </div>
                             @enderror
                         </div>
+
+                         <div class="form-group mb-3">
+                            <label for="password_confirmation" class="form-label">Confirm Password</label>
+                            <input type="password" name="password_confirmation" id="password_confirmation"
+                                class="form-control @error('password_confirmation') is-invalid @enderror">
+
+                            @error('password_confirmation')
+                                <div class="invalid-feedback d-block">
+                                    <span>{{ $message }}</span>
+                                </div>
+                            @enderror
+                        </div>
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">
