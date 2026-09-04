@@ -39,6 +39,8 @@ Route :: group([
     Route::resource('admin', AdminController::class);
 
     Route::get ('/student', [StudentController::class, 'index'])->name('student.index');
+    Route::get('/student/create', [StudentController::class, 'adminCreate'])->name('student.create');
+    Route::post('/student', [StudentController::class, 'adminStore'])->name('student.store');
     Route::get ('/student/{student}', [StudentController::class, 'show'])->name('student.show');
     Route::delete('/student/{student}', [StudentController::class, 'destroy'])->name('student.destroy');
 
