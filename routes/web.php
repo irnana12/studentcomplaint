@@ -42,6 +42,8 @@ Route :: group([
     Route::get('/student/create', [StudentController::class, 'adminCreate'])->name('student.create');
     Route::post('/student', [StudentController::class, 'adminStore'])->name('student.store');
     Route::get ('/student/{student}', [StudentController::class, 'show'])->name('student.show');
+    Route::get('/student/{student}/edit', [StudentController::class, 'edit'])->name('student.edit');
+    Route::put('/student/{student}', [StudentController::class, 'update'])->name('student.update');
     Route::delete('/student/{student}', [StudentController::class, 'destroy'])->name('student.destroy');
 
     Route::get ('/complaint', [ComplaintController::class, 'index'])->name('complaint.index');

@@ -24,7 +24,7 @@
                     @foreach ($students as $student)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $student->name }}</td>
+                            <td>{{ $student->nama }}</td>
                             <td>{{ $student->email }}</td>
                             <td>
                                 <a href="{{ route('admin.student.show', encrypt($student->id)) }}" class="btn btn-sm btn-outline-secondary">Detail</a>
