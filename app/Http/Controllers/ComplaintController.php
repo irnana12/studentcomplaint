@@ -7,6 +7,11 @@ use App\Models\Complaint;
 
 class ComplaintController extends Controller
 {
+    public function create(Request $request)
+    {
+        return view('pages.complaint.create');
+    }
+
     public function index()
     {
         $complaints = Complaint::all();
@@ -15,7 +20,7 @@ class ComplaintController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'student_id' => 'required|exists:students,id',
             'isi_pengaduan' => 'required',
         ]);
@@ -24,8 +29,7 @@ class ComplaintController extends Controller
 
         Complaint::create($validated);
 
-        return redirect()->route('admin.complaint.index')
-                            ->with('success', 'Data pengaduan berhasil di kirim');
+        return redirect('/')->with('success', 'Pengaduan berhasil dikirim');
     }
 
     public function show(string $id)
@@ -40,6 +44,6 @@ class ComplaintController extends Controller
         $complaint->delete();
 
         return redirect()->route('admin.complaint.index')
-                            ->with('success', 'Data pengaduan berhasil di hapus');
+            ->with('success', 'Data pengaduan berhasil di hapus');
     }
 }

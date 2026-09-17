@@ -8,6 +8,16 @@
     @vite(['resources/sass/app.scss'])
 </head>
 <body>
+
+    <body>
+
+    @if(session('success'))
+        <div class="alert alert-success text-center m-3">{{ session('success') }}</div>
+    @endif
+
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    ...
+
     <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh">
         <div class="card shadow-sm p-4" style="max-width: 600px; width: 100%;">
             <div class="text-center mb-4">

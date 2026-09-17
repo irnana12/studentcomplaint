@@ -30,7 +30,7 @@
             </div>
 
             <div class="mb-3">
-                <label class="fw-bold">tanggal</label>
+                <label class="fw-bold">di buat pada tanggal</label>
                 <input type="text" class="form-control" value="{{ $student->created_at->format('d/m/Y') }}" readonly>
             </div>
 

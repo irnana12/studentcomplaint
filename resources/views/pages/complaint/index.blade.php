@@ -24,8 +24,8 @@
                     @foreach ($complaints as $complaint)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $complaint->name }}</td>
-                            <td>{{ $complaint->pengaduan }}</td>
+                            <td>{{ $complaint->student->nama }}</td>
+                            <td>{{ $complaint->isi_pengaduan }}</td>
                             <td>{{ $complaint->created_at->format('d/m/y') }}</td>
                             <td>
                                 <a href="{{ route('admin.complaint.show', encrypt($complaint->id)) }}" class="btn btn-sm btn-outline-secondary">Detail</a>

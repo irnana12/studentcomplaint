@@ -16,19 +16,26 @@ class StudentController extends Controller
     // Form publik - Siswa isi data sendiri
     public function create()
     {
-        return view('pages.student.create');
+        return view('pages.student.create-publik');
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'nis' => 'required|unique:students|max:20',
+            'nis' => 'required|max:20',
             'nama' => 'required|max:100',
             'kelas' => 'required|max:10',
-            'email' => 'required|email|unique:students|max:100',
+            'email' => 'required|email|max:100',
         ]);
 
-        $student = Student::create($request->all());
+        $student = Student::firstOrCreate(
+            ['nis' => $request->nis],
+            [
+                'nama' => $request->nama,
+                'kelas' => $request->kelas,
+                'email' => $request->email,
+            ]
+        );
 
         return redirect()->route('complaint.create', ['student_id' => $student->id]);
     }
