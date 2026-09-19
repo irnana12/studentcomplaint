@@ -28,8 +28,8 @@
                             <td>{{ $complaint->isi_pengaduan }}</td>
                             <td>{{ $complaint->created_at->format('d/m/y') }}</td>
                             <td>
-                                <a href="{{ route('admin.complaint.show', encrypt($complaint->id)) }}" class="btn btn-sm btn-outline-secondary">Detail</a>
-                                <form action="{{ route('admin.complaint.destroy', encrypt($complaint->id)) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus Pengaduan ini?')">
+                                <a href="{{ route('admin.complaint.show', $complaint->id) }}" class="btn btn-sm btn-outline-secondary">Detail</a>
+                                <form action="{{ route('admin.complaint.destroy', $complaint->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus Pengaduan ini?')">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-outline-danger">Hapus</button>

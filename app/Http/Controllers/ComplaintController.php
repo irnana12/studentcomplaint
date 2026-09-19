@@ -40,7 +40,7 @@ class ComplaintController extends Controller
 
     public function destroy(string $id)
     {
-        $complaint = Complaint::findOrFail(decrypt($id));
+        $complaint = Complaint::findOrFail(($id));
         $complaint->delete();
 
         return redirect()->route('admin.complaint.index')

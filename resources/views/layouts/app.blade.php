@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>@yield('title') - Aplikasi Pengaduan Siswa</title>
-    @vite(['resources/sass/app.scss'])
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
 
@@ -16,7 +16,7 @@
                 {{ Auth::user()->name }}
             </button>
             <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="{{ route('admin.admin.index') }}">Profil Saya</a></li>
+                <li><a class="dropdown-item" href="{{ route('admin.admin.show', encrypt(Auth::user()->id)) }}">Profil Saya</a></li>
                 <li>
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
@@ -38,10 +38,6 @@
                     <a href="{{ route('admin.student.index') }}" class="btn btn-outline-dark text-start">Hal. Siswa</a>
                     <a href="{{ route('admin.complaint.index') }}" class="btn btn-outline-dark text-start">Hal. Pengaduan</a>
                     <a href="{{ route('admin.admin.index') }}" class="btn btn-outline-dark text-start">Hal. Admin</a>
-                    <form action="{{ route('logout') }}" method="POST">
-                        @csrf
-                        <button type="submit" class="btn btn-outline-dark text-start w-100">Logout</button>
-                    </form>
                 </div>
             </div>
         </div>

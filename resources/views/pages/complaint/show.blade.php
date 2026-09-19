@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Detail Admin')
+@section('title', 'Detail Pengaduan')
 
 @section('content')
 
@@ -10,23 +10,23 @@
         <div class="card-body">
 
             <div class="mb-3">
-                <label class="fw-bold">Nama Lengkap</label>
-                <input type="text" class="form-control" value="{{ $user->name }}" readonly>
+                <label class="fw-bold">Nama Siswa</label>
+                <input type="text" class="form-control" value="{{ $complaint->student->nama }}" readonly>
             </div>
 
             <div class="mb-3">
                 <label class="fw-bold">Kelas</label>
-                <input type="text" class="form-control" value="{{ $user->kelas }}" readonly>
+                <input type="text" class="form-control" value="{{ $complaint->student->kelas }}" readonly>
             </div>
 
             <div class="mb-3">
-                <label class="fw-bold">tanggal</label>
-                <input type="text" class="form-control" value="{{ $user->created_at->format('d/m/Y') }}" readonly>
+                <label class="fw-bold">Tanggal</label>
+                <input type="text" class="form-control" value="{{ $complaint->tanggal->format('d/m/Y') }}" readonly>
             </div>
 
             <div class="mb-3">
                 <label class="fw-bold">Isi Pengaduan</label>
-                <input type="text" class="form-control" value="{{ $user->isi_pengaduan }}" readonly>
+                <textarea class="form-control" rows="4" readonly>{{ $complaint->isi_pengaduan }}</textarea>
             </div>
 
             <a href="{{ route('admin.complaint.index') }}" class="btn btn-dark">Kembali</a>

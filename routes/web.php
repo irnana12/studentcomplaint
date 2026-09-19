@@ -47,9 +47,8 @@ Route :: group([
     Route::delete('/student/{student}', [StudentController::class, 'destroy'])->name('student.destroy');
 
     Route::get ('/complaint', [ComplaintController::class, 'index'])->name('complaint.index');
-    Route::get ('/complaint/{complaint}', [ComplaintController::class, 'show'])->name('complaint.show');
+    Route::get('/complaint/{complaint}', [ComplaintController::class, 'show'])->name('complaint.show')->where('complaint', '.*');
     Route::delete ('/complaint/{complaint}', [ComplaintController::class, 'destroy'])->name('complaint.destroy');
 });
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

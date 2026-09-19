@@ -14,6 +14,10 @@ class Complaint extends Model
         'tanggal',
     ];
 
+    protected $casts = [
+        'tanggal' => 'datetime',
+    ];
+
     public function student()
     {
         return $this->belongsTo(Student::class);
