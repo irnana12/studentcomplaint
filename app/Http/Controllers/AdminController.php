@@ -45,7 +45,7 @@ class AdminController extends Controller
      */
     public function show(string $id)
     {
-        $user = User::findOrFail(decrypt($id));
+        $user = User::findOrFail($id);
         return view('pages.admin.show', compact('user'));
     }
 
@@ -54,7 +54,7 @@ class AdminController extends Controller
      */
     public function edit(string $id)
     {
-        $user = User::findOrFail(decrypt($id));
+        $user = User::findOrFail($id);
 
         return view('pages.admin.edit', compact('user'));
     }
@@ -64,7 +64,7 @@ class AdminController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $user = User::findOrFail(decrypt($id));
+        $user = User::findOrFail($id);
 
         $request->validate([
             'name'  => 'required|string|max:255',
@@ -90,7 +90,7 @@ class AdminController extends Controller
      */
     public function destroy(string $id)
     {
-         $user = User::findOrFail(decrypt($id));
+         $user = User::findOrFail($id);
 
         $user->delete();
 

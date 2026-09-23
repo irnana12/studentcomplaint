@@ -7,7 +7,7 @@
 <h1 class="page-title mb-3">Update Admin</h1>
     <div class="row">
         <div class="col-md-6">
-            <form action="{{ route('admin.admin.update', encrypt($user->id)) }}" method="POST">
+            <form action="{{ route('admin.admin.update', $user->id) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="form-group">

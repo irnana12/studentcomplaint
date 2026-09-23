@@ -11,7 +11,7 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ route('admin.student.update', encrypt($student->id)) }}" method="POST">
+                        <form action="{{ route('admin.student.update', $student->id) }}" method="POST">
                             @csrf
                             @method('PUT')
 

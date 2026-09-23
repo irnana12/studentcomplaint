@@ -27,9 +27,9 @@
                             <td>{{ $student->nama }}</td>
                             <td>{{ $student->email }}</td>
                             <td>
-                                <a href="{{ route('admin.student.show', encrypt($student->id)) }}" class="btn btn-sm btn-outline-secondary">Detail</a>
-                                <a href="{{ route('admin.student.edit', encrypt($student->id)) }}" class="btn btn-sm btn-outline-primary">Edit</a>
-                                <form action="{{ route('admin.student.destroy', encrypt($student->id)) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus Data siswa ini?')">
+                                <a href="{{ route('admin.student.show', $student->id) }}" class="btn btn-sm btn-outline-secondary">Detail</a>
+                                <a href="{{ route('admin.student.edit', $student->id) }}" class="btn btn-sm btn-outline-primary">Edit</a>
+                                <form action="{{ route('admin.student.destroy', $student->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus Data siswa ini?')">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-outline-danger">Hapus</button>

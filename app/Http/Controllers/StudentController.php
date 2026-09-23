@@ -63,19 +63,19 @@ class StudentController extends Controller
 
     public function show(string $id)
     {
-        $student = Student::findOrFail(decrypt($id));
+        $student = Student::findOrFail($id);
         return view('pages.student.show', compact('student'));
     }
 
     public function edit(string $id)
     {
-        $student = Student::findOrFail(decrypt($id));
+        $student = Student::findOrFail($id);
         return view('pages.student.edit', compact('student'));
     }
 
     public function update(Request $request, string $id)
     {
-        $student = Student::findOrFail(decrypt($id));
+        $student = Student::findOrFail($id);
 
         $request->validate([
             'nis' => 'required|max:20|unique:students,nis,' . $student->id,
@@ -92,7 +92,7 @@ class StudentController extends Controller
 
     public function destroy(string $id)
     {
-        $student = Student::findOrFail(decrypt($id));
+        $student = Student::findOrFail($id);
         $student->delete();
 
         return redirect()->route('admin.student.index')
