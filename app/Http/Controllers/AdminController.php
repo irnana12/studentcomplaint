@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -33,9 +35,9 @@ class AdminController extends Controller
         ]);
 
         $user = User::create([
-           'name' => $request->name,
-           'email' => $request->email,
-           'password' =>bcrypt($request->password)
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password)
         ]);
         return redirect()->route('admin.admin.index')->with('success', 'admin berhasil di tambahkan');
     }
@@ -72,6 +74,17 @@ class AdminController extends Controller
             'password' => 'nullable|min:8|confirmed',
         ]);
 
+        //verifikasi password lama
+        if ($id == Auth::id() && $request->filled('password')) {
+            $request->validate([
+                'old_password' => 'required',
+            ]);
+
+            if (!Hash::check($request->old_password, $user->password)) {
+                return back()->withErrors(['old_password' => 'Password lama tidak sesuai'])->withInput();
+            }
+        }
+
         $user->name = $request->name;
         $user->email = $request->email;
 
@@ -90,7 +103,7 @@ class AdminController extends Controller
      */
     public function destroy(string $id)
     {
-         $user = User::findOrFail($id);
+        $user = User::findOrFail($id);
 
         $user->delete();
 
