@@ -1,0 +1,28 @@
+/* Warna tema aplikasi pengaduan siswa */
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #3498db;
+}
+
+.navbar {
+    background-color: var(--primary-color) !important;
+}
+
+.btn-dark {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-dark:hover {
+    background-color: #1a252f;
+    border-color: #1a252f;
+}
+
+.card {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.bg-light.border-end {
+    background-color: #f8f9fa !important;
+}

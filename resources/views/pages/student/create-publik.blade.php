@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Isi Data Siswa - Aplikasi Pengaduan Siswa</title>
-    @vite(['resources/sass/app.scss'])
+    @vite(['resources/sass/app.scss',  'resources/css/custom.css'])
 </head>
 <body>
     <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
